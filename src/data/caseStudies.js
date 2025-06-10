@@ -2,42 +2,42 @@
 export const caseStudies = [
   {
     id: 1,
-    title: "Reviving a Boutique’s Digital Glow",
-    summary: "Boosted sales by 40% with a complete e-commerce overhaul and targeted digital marketing strategy.",
-    content: "This project involved a deep dive into the boutique's brand identity, target audience, and competitive landscape. We designed and developed a Shopify store with a custom theme, focusing on mobile-first design, intuitive navigation, and high-quality product imagery. Post-launch, we implemented an SEO strategy and social media campaigns that significantly increased traffic and conversion rates, leading to a 40% uplift in online sales within the first six months. Key challenges included migrating existing customer data and integrating with their inventory management system, which we resolved through custom API development and rigorous testing.",
-    image: "/images/case-study-1.jpg",
+    title: "Revolutionizing a Boutique’s E-Commerce",
+    summary: "Boosted sales 35% with a sleek online store and enhanced user experience for a fashion boutique.",
+    content: "The project began with a deep dive into the boutique's unique brand identity, their target demographic, and the competitive online fashion landscape. Our team designed and developed a custom Shopify experience, emphasizing a mobile-first approach, intuitive product discovery, and high-fidelity imagery. Post-launch, a tailored SEO strategy combined with engaging social media campaigns led to a significant uptick in organic traffic and conversion rates, culminating in a 35% increase in online sales within the first quarter. A key challenge was the seamless migration of existing customer and product data, alongside integration with their new inventory management system. This was successfully navigated through custom API solutions and comprehensive end-to-end testing, ensuring a smooth transition and operational efficiency.",
+    image: "/images/boutique-case.jpg",
     style: "style1"
   },
   {
     id: 2,
-    title: "Streamlining a Gym’s Workflow",
-    summary: "New membership platform cut admin time by 50% and improved member retention by 15%.",
-    content: "The gym faced challenges with an outdated manual system for managing memberships, class bookings, and payments. We developed a custom web application featuring automated billing, online class scheduling with real-time availability, and a member portal for self-service. The solution integrated with payment gateways and calendar tools. The streamlined workflow freed up staff time significantly, allowing them to focus more on member engagement, which contributed to a noticeable increase in member satisfaction and retention rates. We used React for the frontend and a Node.js backend.",
-    image: "/images/case-study-2.jpg",
+    title: "Streamlining Gym Operations",
+    summary: "New digital platform cut administrative tasks by 45% and improved member engagement significantly.",
+    content: "The fitness center was grappling with an inefficient, largely manual system for managing memberships, class bookings, and financial transactions. We engineered a bespoke web application featuring automated recurring billing, real-time online class scheduling with dynamic availability, and a comprehensive member portal for self-service account management and progress tracking. The platform integrated smoothly with popular payment gateways and calendar applications. This digital transformation drastically reduced administrative workload, freeing up staff to concentrate on enhancing member experiences, which directly contributed to higher member satisfaction and improved retention figures. The frontend was built with React for a responsive user interface, supported by a robust Node.js backend for reliable performance.",
+    image: "/images/gym-case.jpg",
     style: "style2"
   },
   {
     id: 3,
-    title: "Artisan Cafe's Online Expansion",
-    summary: "Launched a new online ordering system, increasing take-away revenue by 60% in three months.",
-    content: "An artisan cafe wanted to tap into the growing market for online food orders. We built a user-friendly online ordering platform integrated directly into their existing website. Features included customizable menu items, secure online payments, and order management for staff. The design focused on showcasing their high-quality ingredients and unique offerings. Aggressive local SEO and social media promotion supported the launch, resulting in a rapid adoption by customers and a significant boost to their takeaway business, diversifying their revenue streams effectively.",
-    image: "/images/case-study-3.jpg",
+    title: "Artisan Cafe's Digital Expansion",
+    summary: "Launched a new online ordering and reservation system, increasing take-away revenue by 55%.",
+    content: "An esteemed artisan cafe aimed to capture the burgeoning market for online food orders and table reservations. We developed an elegant, user-friendly online ordering and booking platform, seamlessly integrated into their existing website. Key features included a customizable menu with high-quality visuals, secure online payment processing, and an intuitive order/reservation management dashboard for cafe staff. The design philosophy centered on showcasing their premium ingredients and unique culinary creations. A hyper-local SEO strategy and targeted social media promotions accompanied the launch, fostering rapid customer adoption and a substantial 55% growth in takeaway and pre-booked revenue, thereby diversifying their income streams and enhancing customer convenience.",
+    image: "/images/cafe-expansion-case.jpg",
     style: "style3"
   },
   {
     id: 4,
-    title: "AI-Powered Customer Support for E-commerce",
-    summary: "Implemented an AI chatbot, reducing support tickets by 35% and improving response times.",
-    content: "An expanding e-commerce client was struggling with a high volume of customer support inquiries. We integrated a Genkit-powered AI chatbot trained on their product catalog, FAQs, and past support interactions. The chatbot handled common queries like order tracking, product information, and return policies 24/7. This allowed human agents to focus on complex issues, improving overall customer satisfaction and reducing operational costs. The project involved careful prompt engineering and continuous monitoring to refine the chatbot's accuracy and helpfulness.",
-    image: "/images/case-study-4.jpg",
+    title: "AI-Enhanced Support for E-Tailer",
+    summary: "Implemented an AI chatbot, reducing customer support tickets by 30% and boosting response efficiency.",
+    content: "A rapidly growing e-commerce client was struggling to manage the escalating volume of customer support inquiries. We deployed a Genkit-powered AI chatbot, meticulously trained on their extensive product catalog, comprehensive FAQs, and historical support interaction data. The chatbot adeptly handled a wide array of common queries, including order tracking, product specifications, and return policy clarifications, operating 24/7. This strategic implementation allowed human support agents to dedicate their expertise to more complex and nuanced customer issues, leading to a marked improvement in overall customer satisfaction metrics and a reduction in operational overhead. The project involved iterative prompt engineering and continuous performance monitoring to refine the chatbot's accuracy, empathy, and problem-solving capabilities.",
+    image: "/images/ai-support-case.jpg",
     style: "style4"
   },
   {
     id: 5,
-    title: "Consultancy Firm's Digital Transformation",
-    summary: "Redesigned corporate website and CRM integration led to a 25% increase in qualified leads.",
-    content: "A B2B consultancy firm needed to modernize its online presence and improve lead generation. We redesigned their website with a professional, trustworthy aesthetic, clear calls-to-action, and insightful content showcasing their expertise. We also integrated the website's contact forms and lead magnets directly with their CRM system, automating lead capture and follow-up processes. This holistic approach not only enhanced their brand image but also significantly improved the quality and quantity of incoming leads, supporting their business growth objectives.",
-    image: "/images/case-study-5.jpg",
+    title: "Consultancy's Digital Blueprint for Growth",
+    summary: "Redesigned corporate site and CRM integration led to a 20% increase in high-quality lead generation.",
+    content: "A B2B consultancy firm recognized the need to modernize its digital footprint and optimize its lead generation funnel. We undertook a comprehensive website redesign, focusing on a professional, authoritative aesthetic, strategically placed calls-to-action, and compelling content that highlighted their industry expertise and client successes. A critical component was the deep integration of the website's contact forms and downloadable lead magnets directly with their CRM system, automating the lead capture, qualification, and initial follow-up processes. This synergistic approach not only elevated their brand perception but also demonstrably improved both the quality and quantity of inbound leads, providing a strong foundation for their business development objectives and sustained growth.",
+    image: "/images/consultancy-case.jpg",
     style: "style5"
   }
 ];

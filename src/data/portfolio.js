@@ -2,44 +2,44 @@
 export const portfolio = [
   {
     id: 1,
-    name: "E-commerce Elegance",
-    description: "Chic online store for a fashion boutique, driving sales.",
-    previewImage: "/images/portfolio-preview-1.jpg",
-    link: "#"
+    name: "Café Haven Website",
+    description: "A cozy site with seamless online ordering for a local café.",
+    previewImage: "/images/cafe-preview.jpg",
+    link: "https://example.com/cafe-haven"
   },
   {
-    id:2,
-    name: "Culinary Canvas",
-    description: "Restaurant site with interactive menus and online orders.",
-    previewImage: "/images/portfolio-preview-2.jpg",
-    link: "#"
+    id: 2,
+    name: "Artisan Bakery Portal",
+    description: "Fresh design for bakery orders and local community engagement.",
+    previewImage: "/images/bakery-preview.jpg",
+    link: "https://example.com/artisan-bakery"
   },
   {
     id: 3,
-    name: "Tech Startup Launchpad",
-    description: "Modern landing page for a new SaaS, capturing leads.",
-    previewImage: "/images/portfolio-preview-3.jpg",
-    link: "#"
+    name: "Fitness Pro Platform",
+    description: "Dynamic website for a fitness coach, including class schedules.",
+    previewImage: "/images/fitness-preview.jpg",
+    link: "https://example.com/fitness-pro"
   },
   {
     id: 4,
-    name: "Wellness Portal",
-    description: "Booking platform for a yoga studio, simplifying scheduling.",
-    previewImage: "/images/portfolio-preview-4.jpg",
-    link: "#"
+    name: "Indie Bookstore Online",
+    description: "E-commerce solution for an independent bookstore.",
+    previewImage: "/images/bookstore-preview.jpg",
+    link: "https://example.com/indie-bookstore"
   },
   {
     id: 5,
-    name: "Artisan Bakery Hub",
-    description: "Fresh design for a bakery’s online orders and local delivery.",
-    previewImage: "/images/portfolio-preview-5.jpg",
-    link: "#"
+    name: "Creative Studio Showcase",
+    description: "Visually rich portfolio site for a design agency.",
+    previewImage: "/images/studio-preview.jpg",
+    link: "https://example.com/creative-studio"
   },
   {
     id: 6,
-    name: "Non-Profit Connect",
-    description: "Engaging site for a community charity, boosting outreach.",
-    previewImage: "/images/portfolio-preview-6.jpg",
-    link: "#"
+    name: "Tech Solutions Hub",
+    description: "Informative website for a local IT consultancy.",
+    previewImage: "/images/tech-preview.jpg",
+    link: "https://example.com/tech-solutions"
   }
 ];
