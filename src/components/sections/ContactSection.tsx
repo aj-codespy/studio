@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MessageSquare, User } from 'lucide-react';
+import { sendEmailAction } from '@/app/actions/sendEmail';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -21,7 +22,7 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactSection() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
@@ -34,16 +35,40 @@ export function ContactSection() {
   });
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(data); // In a real app, you'd send this data to a backend
-    setIsSubmitted(true);
-    form.reset();
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll be in touch soon!",
-      variant: "default",
-    });
+    setIsSubmitting(true);
+    try {
+      const result = await sendEmailAction(data);
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message,
+          variant: "default",
+        });
+        form.reset();
+      } else {
+        console.error("Submission error:", result.error);
+        let errorMessage = result.message;
+        if (typeof result.error === 'object' && result.error !== null && 'message' in result.error) {
+             // Attempt to get a more specific error message if available
+             const specificError = result.error as { message?: string };
+             if (specificError.message) errorMessage = specificError.message;
+        }
+        toast({
+          title: "Submission Failed",
+          description: errorMessage || "An unknown error occurred.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Catch block error:", error);
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,63 +81,56 @@ export function ContactSection() {
           Have a project in mind or just want to learn more? Drop us a line!
         </p>
 
-        {isSubmitted && !form.formState.isSubmitting ? (
-          <div className="text-center p-8 bg-green-100 border border-green-400 text-green-700 rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
-            <p>Your message has been sent successfully. We'll be in touch soon.</p>
-          </div>
-        ) : (
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 md:p-8 bg-card rounded-xl shadow-2xl border border-border">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center text-primary"><User className="mr-2 h-4 w-4 text-accent" />Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Full Name" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center text-primary"><Mail className="mr-2 h-4 w-4 text-accent" />Email Address</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center text-primary"><MessageSquare className="mr-2 h-4 w-4 text-accent" />Your Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Tell us about your project or inquiry..." rows={5} {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button 
-                type="submit" 
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 focus-visible:ring-accent transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Form>
-        )}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 md:p-8 bg-card rounded-xl shadow-2xl border border-border">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex items-center text-primary"><User className="mr-2 h-4 w-4 text-accent" />Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Your Full Name" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex items-center text-primary"><Mail className="mr-2 h-4 w-4 text-accent" />Email Address</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder="your.email@example.com" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex items-center text-primary"><MessageSquare className="mr-2 h-4 w-4 text-accent" />Your Message</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Tell us about your project or inquiry..." rows={5} {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button 
+              type="submit" 
+              className="w-full bg-accent text-accent-foreground hover:bg-accent/90 focus-visible:ring-accent transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+              disabled={isSubmitting || form.formState.isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+        </Form>
       </div>
     </section>
   );
