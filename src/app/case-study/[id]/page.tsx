@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     };
   }
   return {
-    title: `${caseStudy.title} | Case Study | Vanderbilt Vision`,
+    title: `${caseStudy.title} | Case Study | Vanderbilt Agency`,
     description: caseStudy.summary,
     openGraph: {
         title: `${caseStudy.title} | Case Study`,
@@ -36,16 +36,16 @@ export async function generateStaticParams() {
 
 const BackButton = () => (
   <Button asChild variant="outline" className="group fixed top-20 left-4 md:left-8 z-50 bg-background/80 hover:bg-accent hover:text-accent-foreground backdrop-blur-sm">
-    <Link href="/#case-studies" className="flex items-center">
+    <Link href="/case-studies" className="flex items-center">
       <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-      Back to Stories
+      Back to Case Studies
     </Link>
   </Button>
 );
 
 const ContentRenderer: React.FC<{ content: string }> = ({ content }) => (
   <div className="space-y-4">
-    {content.split('\\n\\n').map((paragraph, index) => ( // Assuming \\n\\n for paragraph breaks in data
+    {content.split('\\n\\n').map((paragraph, index) => (
       <p key={index} className="text-base md:text-lg leading-relaxed">
         {paragraph}
       </p>
@@ -72,8 +72,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
   const placeholderBaseUrl = "https://placehold.co";
 
 
-  if (caseStudy.style === 'style1') {
-    // Style 1: Cinematic Full-Width
+  if (caseStudy.style === 'style1') { // Epic Hero - Full-width image header, single-column text, blue accents.
     return (
       <div className="bg-background text-foreground min-h-screen">
         <BackButton />
@@ -103,8 +102,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
     );
   }
 
-  if (caseStudy.style === 'style2') {
-    // Style 2: Split Narrative
+  if (caseStudy.style === 'style2') { // Dual Narrative - Image left, text right, emerald highlights.
     return (
       <div className="bg-background text-foreground min-h-screen py-12 md:py-16 lg:py-24">
         <BackButton />
@@ -124,7 +122,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
                 {caseStudy.title}
               </h1>
               <p className="text-muted-foreground mb-6 text-lg md:text-xl">{caseStudy.summary}</p>
-              <div className="text-foreground/90 prose-strong:text-accent">
+              <div className="text-foreground/90 prose prose-strong:text-emerald-600 dark:prose-strong:text-emerald-400">
                  <ContentRenderer content={caseStudy.content} />
               </div>
             </article>
@@ -134,8 +132,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
     );
   }
 
-  if (caseStudy.style === 'style3') {
-    // Style 3: Immersive Overlay
+  if (caseStudy.style === 'style3') { // Immersive Drama - Text over a semi-transparent image, white text, dark gradient.
     return (
       <div className="relative min-h-screen flex flex-col items-center justify-center text-primary-foreground py-16 md:py-24">
         <BackButton />
@@ -161,8 +158,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
     );
   }
 
-  if (caseStudy.style === 'style4') {
-    // Style 4: Timeline Journey (Simplified)
+  if (caseStudy.style === 'style4') { // Timeline Saga - Milestone-based layout (problem, solution, results), coral accents.
     const sections = [
       { title: "The Challenge", text: caseStudy.summary, icon: <HelpCircle className="w-6 h-6 md:w-8 md:h-8 text-accent-foreground" /> },
       { title: "Our Solution", text: caseStudy.content.substring(0, Math.min(250, caseStudy.content.length)) + (caseStudy.content.length > 250 ? "..." : ""), icon: <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-accent-foreground" /> },
@@ -199,8 +195,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
     );
   }
 
-  if (caseStudy.style === 'style5') {
-    // Style 5: Card Mosaic
+  if (caseStudy.style === 'style5') { // Mosaic Story - Card-based sections, gradient backdrop for visual flair.
     const cardSections = [
       { title: "Project Overview", content: caseStudy.summary },
       { title: "Key Challenges", content: "The main hurdles involved addressing outdated systems and enhancing user engagement through innovative design and technology." },
