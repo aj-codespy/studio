@@ -1,10 +1,10 @@
 
 export const siteConfig = {
   name: "Vanderbilt Agency",
-  title: "Vanderbilt Vision | Web & AI Solutions", // Updated title to include Vision
-  description: "Transforming small businesses with stunning websites and AI automation.",
+  title: "Vanderbilt Agency | Web & AI Excellence",
+  description: "Transforming businesses with custom websites and AI automation.",
   url: "https://example.com", // Replace with actual URL when deployed
-  ogImage: "https://placehold.co/1200x630.png?text=Vanderbilt+Vision", // Placeholder OG Image
+  ogImage: "https://placehold.co/1200x630.png?text=Vanderbilt+Agency", // Placeholder OG Image
   links: {
     linkedin: "https://www.linkedin.com", // Placeholder, update with actual link
     instagram: "https://www.instagram.com", // Placeholder, update with actual link
@@ -13,9 +13,10 @@ export const siteConfig = {
     { href: "/", label: "Home" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/case-studies", label: "Case Studies" },
+    { href: "/content-editor", label: "Content Editor" },
     { href: "/contact", label: "Contact" },
   ],
-  footerText: `© ${new Date().getFullYear()} Vanderbilt Vision. All rights reserved.`, // Updated name
+  footerText: "© 2025 Vanderbilt Agency. All rights reserved.",
 };
 
 export type SiteConfig = typeof siteConfig;

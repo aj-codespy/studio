@@ -8,13 +8,13 @@ import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url), // Recommended for resolving ogImage correctly
+  metadataBase: new URL(siteConfig.url), 
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["web design", "ai solutions", "small business", "vanderbilt agency", "portfolio", "digital agency", "website development"],
+  keywords: ["web design", "ai solutions", "small business", "vanderbilt agency", "portfolio", "digital agency", "website development", "content editor"],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   openGraph: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage, // Ensure this is an absolute URL or handled by metadataBase
+        url: siteConfig.ogImage, 
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.ogImage], // Ensure this is an absolute URL
-    creator: "@VandyVision", // Replace with actual Twitter handle
+    images: [siteConfig.ogImage], 
+    creator: "@VandyAgency", // Updated placeholder Twitter handle
   },
   icons: {
     icon: "/favicon.ico", 
@@ -63,8 +63,9 @@ export default function RootLayout({
             --font-pt-sans: 'PT Sans', sans-serif;
           }
         `}} />
-        {/* Placeholder for Google Analytics Script - replace with your actual GTM or GA script */}
         {/* 
+        Placeholder for Google Analytics Script - replace with your actual GTM or GA ID
+        Ensure you handle cookie consent appropriately.
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID`}
@@ -73,14 +74,14 @@ export default function RootLayout({
           id="ga-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `
+            __html: \`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'YOUR_GA_ID', {
                 page_path: window.location.pathname,
               });
-            `,
+            \`,
           }}
         />
         */}
