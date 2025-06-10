@@ -1,17 +1,20 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site';
 import { Toaster } from "@/components/ui/toaster";
+import Script from 'next/script';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url), // Recommended for resolving ogImage correctly
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["web design", "ai solutions", "small business", "vanderbilt agency", "portfolio"],
+  keywords: ["web design", "ai solutions", "small business", "vanderbilt agency", "portfolio", "digital agency", "website development"],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   openGraph: {
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: siteConfig.ogImage, // Ensure this is an absolute URL or handled by metadataBase
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -34,13 +37,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@yourtwitterhandle", // Replace with actual Twitter handle
+    images: [siteConfig.ogImage], // Ensure this is an absolute URL
+    creator: "@VandyVision", // Replace with actual Twitter handle
   },
   icons: {
-    icon: "/favicon.ico", // Ensure you have a favicon.ico in your public folder
+    icon: "/favicon.ico", 
   },
-  manifest: `${siteConfig.url}/site.webmanifest`, // Ensure you have a site.webmanifest
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export default function RootLayout({
@@ -60,6 +63,27 @@ export default function RootLayout({
             --font-pt-sans: 'PT Sans', sans-serif;
           }
         `}} />
+        {/* Placeholder for Google Analytics Script - replace with your actual GTM or GA script */}
+        {/* 
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID`}
+        />
+        <Script
+          id="ga-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'YOUR_GA_ID', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        */}
       </head>
       <body className="min-h-screen bg-background font-body antialiased">
         <div className="relative flex min-h-screen flex-col">

@@ -1,7 +1,20 @@
 
 import { HeroSection } from '@/components/sections/HeroSection';
-import { PortfolioSection } from '@/components/sections/PortfolioSection';
-import { CaseStudiesSection } from '@/components/sections/CaseStudiesSection';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+import type { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
+
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+};
 
 export default function HomePage() {
   return (
@@ -23,8 +36,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <PortfolioSection />
-      <CaseStudiesSection />
+      <TestimonialsSection />
     </>
   );
 }
