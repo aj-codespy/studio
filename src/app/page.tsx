@@ -1,5 +1,7 @@
+
 import { HeroSection } from '@/components/sections/HeroSection';
 import { PortfolioSection } from '@/components/sections/PortfolioSection';
+import { CaseStudiesSection } from '@/components/sections/CaseStudiesSection';
 
 export default function HomePage() {
   return (
@@ -21,7 +23,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <PortfolioSection /> {/* Add the new portfolio section here */}
+      <PortfolioSection />
+      <CaseStudiesSection />
     </>
   );
 }
