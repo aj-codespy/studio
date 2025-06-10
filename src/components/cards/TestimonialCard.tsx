@@ -21,7 +21,7 @@ export const TestimonialCard: FC<TestimonialCardProps> = ({ quote, author, role,
     .join('');
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden rounded-lg bg-card shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+    <Card className="flex h-full flex-col overflow-hidden rounded-lg bg-card shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hover:ring-2 hover:ring-accent">
       <CardHeader className="pb-4">
         <Quote className="h-8 w-8 text-accent" />
       </CardHeader>

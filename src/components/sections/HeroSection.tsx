@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Rocket } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -14,7 +15,10 @@ export function HeroSection() {
         </p>
         <div className="mt-10 flex justify-center">
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-            <Link href="/portfolio">Explore Our Creations</Link>
+            <Link href="/portfolio">
+              <Rocket className="mr-2 h-5 w-5" />
+              Explore Our Creations
+            </Link>
           </Button>
         </div>
       </div>

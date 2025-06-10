@@ -71,7 +71,7 @@ export function ContactSection() {
                   <FormItem>
                     <FormLabel className="flex items-center text-primary"><User className="mr-2 h-4 w-4 text-accent" />Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Full Name" {...field} className="bg-background/70 focus:ring-accent" />
+                      <Input placeholder="Your Full Name" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -84,7 +84,7 @@ export function ContactSection() {
                   <FormItem>
                     <FormLabel className="flex items-center text-primary"><Mail className="mr-2 h-4 w-4 text-accent" />Email Address</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" {...field} className="bg-background/70 focus:ring-accent" />
+                      <Input type="email" placeholder="your.email@example.com" {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -97,7 +97,7 @@ export function ContactSection() {
                   <FormItem>
                     <FormLabel className="flex items-center text-primary"><MessageSquare className="mr-2 h-4 w-4 text-accent" />Your Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Tell us about your project or inquiry..." rows={5} {...field} className="bg-background/70 focus:ring-accent" />
+                      <Textarea placeholder="Tell us about your project or inquiry..." rows={5} {...field} className="bg-background/70 focus:ring-accent transition-colors duration-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
