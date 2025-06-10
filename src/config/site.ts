@@ -14,7 +14,7 @@ export const siteConfig = {
     { href: "/portfolio", label: "Portfolio" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/content-editor", label: "Content Editor" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#contact", label: "Contact" },
   ],
   footerText: "© 2025 Vanderbilt Agency. All rights reserved.",
 };
