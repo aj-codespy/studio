@@ -13,7 +13,6 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const recipientEmail = 'ajayush2301@gmail.com'; 
 // For testing, Resend's onboarding@resend.dev can be used as a sender.
 // For production, you must verify a domain with Resend (e.g., your agency's domain)
@@ -22,6 +21,18 @@ const senderEmail = 'Vanderbilt Agency Form <onboarding@resend.dev>';
 
 
 export async function sendEmailAction(data: ContactFormValues): Promise<{ success: boolean; message: string; error?: unknown }> {
+  // Check for API key first
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Resend API key is not configured. Email cannot be sent.');
+    return { 
+      success: false, 
+      message: 'Email service is not configured correctly. Please ensure the API key is set and contact support if the issue persists.' 
+    };
+  }
+
+  // Instantiate Resend here, now that we know the key exists.
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   const validatedFields = contactFormSchema.safeParse(data);
 
   if (!validatedFields.success) {
@@ -30,11 +41,6 @@ export async function sendEmailAction(data: ContactFormValues): Promise<{ succes
       message: 'Invalid form data.',
       error: validatedFields.error.flatten().fieldErrors,
     };
-  }
-
-  if (!process.env.RESEND_API_KEY) {
-    console.error('Resend API key is not configured.');
-    return { success: false, message: 'Email service is not configured correctly. Please contact support.' };
   }
   
   const { name, email, message } = validatedFields.data;
