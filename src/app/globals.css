@@ -2,11 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-pt-sans), sans-serif; /* Default to body font */
-}
-
 @layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-pt-sans), sans-serif; /* Default to body font */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair-display), serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  /* Marquee Animation */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* Assumes the content is duplicated once for the marquee effect */
+  }
+
   :root {
     --background: 212 100% 96%; /* Light Blue */
     --foreground: 220 25% 15%;    /* Dark Gray/Blueish for text on light blue */
@@ -76,17 +91,5 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair-display), serif;
   }
 }
