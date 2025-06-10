@@ -1,12 +1,20 @@
 
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Rocket } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center bg-gradient-to-br from-primary via-secondary to-background py-12 md:py-24">
-      <div className="container mx-auto px-4 text-center">
+    <section className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center bg-gradient-to-br from-primary via-secondary to-background py-12 md:py-24 overflow-hidden">
+      {/* Abstract Background Elements */}
+      <div className="absolute inset-0 -z-20 opacity-50">
+        <div className="absolute top-0 -left-1/4 w-full h-full md:w-3/4 md:h-3/4 bg-primary/20 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 -right-1/4 w-full h-full md:w-3/4 md:h-3/4 bg-accent/10 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 text-center relative z-10">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           Crafting Digital Dreams for Small Businesses
         </h1>
@@ -22,11 +30,18 @@ export function HeroSection() {
           </Button>
         </div>
       </div>
-      {/* Optional: Add subtle shapes or elements in the background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Example of a subtle background element - can be expanded or removed */}
-        <div className="absolute -bottom-1/4 left-0 right-0 h-1/2 w-full skew-y-[-6deg] transform bg-background/10 opacity-50"></div>
-      </div>
+      
+      {/* Optional: Add a very subtle overlay for text contrast if needed, or other effects */}
+      {/* <div className="absolute inset-0 bg-black/5 -z-10"></div> */}
+
+      <style jsx>{`
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
 }
